@@ -1,0 +1,13 @@
+<form action="/pets" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="pet[shelter_id]" value="<%= @shelter.id %> ">
+  <h3>Enter new pet's information:</h3>
+  <input type='text' name='pet[name]' value='Name'/><br/>
+  <input type='text' name='pet[image_path]' value='Enter image URL'/><br/>
+  <input type='text' name='pet[approximate_age]' value='Approximate age'/><br/>
+  <input type='text' name='pet[description]' value='Description of pet'/><br/>
+  <p>Sex:</p>
+  <input type='checkbox' name='pet[sex]' value="Male"/>Male<br/>
+  <input type='checkbox' name='pet[sex]' value="Female"/>Female<br/>
+  <input type='submit' value='Create Pet'/>
+</form>
