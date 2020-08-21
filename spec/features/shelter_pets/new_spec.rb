@@ -18,7 +18,7 @@ RSpec.describe "shelter pets new page", type: :feature do
 
   end
 
-  it "can fill out new pet form" do
+  it "can fill out new pet form and create pet" do
 
     shelter_1 = Shelter.create( name: "Drew's Rescue",
                                 address: "208 Main St.",
@@ -35,9 +35,12 @@ RSpec.describe "shelter pets new page", type: :feature do
     fill_in "pet[image_path]", with: "https://cdn3-www.dogtime.com/assets/uploads/gallery/chow-chow-dog-breed-pictures/3-fullbody.jpg"
     fill_in "pet[approximate_age]", with: "12"
     fill_in "pet[description]", with: "A chow mix with a heart of gold."
-    check "Male"
+    fill_in "pet[sex]", with: "Male"
     click_on "Create Pet"
     expect(current_path).to eq("/shelters/#{shelter_1.id}/pets")
+    expect(page).to have_content("Cinnamon")
+    expect(page).to have_content("Jasper")
+    expect(page).to have_content("Tasha")
 
   end
 end

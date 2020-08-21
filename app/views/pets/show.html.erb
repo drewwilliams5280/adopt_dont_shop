@@ -4,3 +4,9 @@
 <p>Approximate age: <%= @pet.approximate_age%></p>
 <p>Sex: <%= @pet.sex %></p>
 <p>Adoption Status: <%= @pet.status %></p>
+<a href="/pets/<%= @pet.id %>/edit">Update Pet</a>
+<form action="/pets/<%= @pet.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Pet"/>
+</form>
