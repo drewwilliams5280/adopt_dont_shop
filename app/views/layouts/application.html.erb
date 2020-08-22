@@ -10,6 +10,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class='clearfix'>
+      <div class="left-nav">
+        <%= link_to "Pets", controller: "pets" %>
+      </div>
+      <div class="right-nav">
+        <%= link_to "Shelters", controller: "shelters" %>
+      </div>
+    </header>
+    <div class='content'>
+      <%= yield %>
+    </div>
   </body>
 </html>

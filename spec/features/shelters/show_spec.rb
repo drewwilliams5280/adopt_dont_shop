@@ -38,7 +38,7 @@ RSpec.describe "shelters show page", type: :feature do
                                 zip: 80220,
                                 )
     visit "/shelters/#{shelter_1.id}"
-    expect(page).to have_button("Delete Shelter")
+    expect(page).to have_link("Delete Shelter")
     click_on "Delete Shelter"
     expect(current_path).to eq('/shelters')
     expect(Shelter.count).to eq(0)

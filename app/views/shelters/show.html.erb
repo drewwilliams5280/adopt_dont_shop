@@ -1,10 +1,12 @@
-<h2><%= @shelter.name %></h2>
+<div class="pageheader">
+  <h1><%= @shelter.name %></h1>
+  <h3>Adopt, Don't Shop: Make a Difference</h3>
+</div>
+<div class="show">
 <p><%= @shelter.address %></p>
 <p><%= "#{@shelter.city}, #{@shelter.state}" %></p>
 <p><%= @shelter.zip %></p>
-<a href="/shelters/<%= @shelter.id %>/edit">Update Shelter</a>
-<form action="/shelters/<%= @shelter.id %>" method="POST">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete Shelter"/>
-</form>
+<h5><a href="/shelters/<%= @shelter.id %>/pets">View Pets</a></h5>
+<h5><a href="/shelters/<%= @shelter.id %>/edit">Update Shelter</a></h5>
+<h5><a href="/shelters/<%= @shelter.id %>/delete">Delete Shelter</a></h5>
+</div>
