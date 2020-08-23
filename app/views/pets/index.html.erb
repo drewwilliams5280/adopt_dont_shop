@@ -2,9 +2,14 @@
   <h1>Colorado Adoptable Pets</h1>
   <h3>Adopt, Don't Shop: Make a Difference</h3>
 </div>
-
+<br>
+<center>
+<h5 style="padding: 10px;"><a href="/pets?adoptable=true">Adoptable Pets</a></h5>
+<h5 style="padding: 10px;"><a href="/pets?adoptable=false">Pending Adoption</a></h5>
+</center>
+<br>
 <div class="row">
-<% @pets.each do |pet| %>
+<% @pets.sort_by {|pet| pet.status}.each do |pet| %>
   <div class="column">
     <img src="<%= pet.image_path %>" alt="<%= pet.name %>" height="180">
     <h2>Name: <a href="/pets/<%= pet.id %>"><%= pet.name %></a></h2>

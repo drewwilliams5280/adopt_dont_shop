@@ -8,6 +8,33 @@
 <p>Approximate age: <%= @pet.approximate_age%></p>
 <p>Sex: <%= @pet.sex %></p>
 <p>Adoption Status: <%= @pet.status %></p>
+<% if @pet.status == "Adoptable" %>
+  <form action="/pets/<%= @pet.id %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="PATCH" />
+    <input type="hidden" name="pet[shelter_id]" value="<%= @pet.shelter.id %>">
+    <input type='hidden' name='pet[name]' value='<%= @pet.name %>'/><br/>
+    <input type='hidden' name='pet[image_path]' value='<%= @pet.image_path %>'/><br/>
+    <input type='hidden' name='pet[approximate_age]' value='<%= @pet.approximate_age %>'/><br/>
+    <input type='hidden' name='pet[description]' value='<%= @pet.description %>'/><br/>
+    <input type='hidden' name='pet[sex]' value="<%= @pet.sex %>"/><br/>
+    <input type="hidden" name='pet[status]' value='Pending Adoption'/><br>
+    <input type='submit' value='Change to Adoption Pending'/>
+  </form>
+<% elsif @pet.status == "Pending Adoption" %>
+  <form action="/pets/<%= @pet.id %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="PATCH" />
+    <input type="hidden" name="pet[shelter_id]" value="<%= @pet.shelter.id %>">
+    <input type='hidden' name='pet[name]' value='<%= @pet.name %>'/><br/>
+    <input type='hidden' name='pet[image_path]' value='<%= @pet.image_path %>'/><br/>
+    <input type='hidden' name='pet[approximate_age]' value='<%= @pet.approximate_age %>'/><br/>
+    <input type='hidden' name='pet[description]' value='<%= @pet.description %>'/><br/>
+    <input type='hidden' name='pet[sex]' value="<%= @pet.sex %>"/><br/>
+    <input type="hidden" name='pet[status]' value='Adoptable'/><br>
+    <input type='submit' value='Change to Adoptable'/>
+  </form>
+<% end %>
 <h5><a href="/pets/<%= @pet.id %>/edit">Update Pet</a></h5>
 <h5><a href="/pets/<%= @pet.id %>/delete">Delete Pet</a></h5>
 </div>

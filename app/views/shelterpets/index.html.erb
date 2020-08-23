@@ -4,7 +4,7 @@
 </div>
 
 <div class="row">
-<% @shelter_pets.each do |pet| %>
+<% @shelter_pets.sort_by {|pet| pet.status}.each do |pet| %>
   <div class="column">
     <img src="<%= pet.image_path %>" alt="<%= pet.name %>" height="200">
     <h2>Name: <a href="/pets/<%= pet.id %>"><%= pet.name %></a></h2>
