@@ -1,11 +1,19 @@
 <div class="pageheader">
-  <h1>Colorado Adoptable Pets</h1>
+  <h1>Colorado Shelter Pets</h1>
   <h3>Adopt, Don't Shop: Make a Difference</h3>
 </div>
 <br>
 <center>
-<h5 style="padding: 10px;"><a href="/pets?adoptable=true">Adoptable Pets</a></h5>
-<h5 style="padding: 10px;"><a href="/pets?adoptable=false">Pending Adoption</a></h5>
+  <form method="patch" action="/pets">
+    <button type="submit" name="adoptable" value="true" class="link-button">
+      See only adoptable pets
+    </button>
+  </form>
+  <form method="patch" action="/pets">
+    <button type="submit" name="adoptable" value="false" class="link-button">
+      See only pets pending adoption
+    </button>
+  </form>
 </center>
 <br>
 <div class="row">

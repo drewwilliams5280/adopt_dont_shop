@@ -2,10 +2,22 @@
   <h1>Colorado Shelters</h1>
   <h3>Adopt, Don't Shop: Make a Difference</h3>
 </div>
-<a href="/shelters/new">New Shelter</a>
 <% @shelters.each do |shelter| %>
   <h2 style="text-align: center"><a href="/shelters/<%= shelter.id %>"><%= shelter.name %></h2>
   <h5 style="text-align: center; display: block"><a href="/shelters/<%= shelter.id %>/edit">Edit</a></h5>
   <h5 style="text-align: center; display: block"><a href="/shelters/<%= shelter.id %>/delete">Delete</a></h5>
 <% end %>
-<br><br><br>
+<br>
+<center>
+<a href="/shelters/new">New Shelter</a>
+<form method="patch" action="/shelters">
+  <button type="submit" name="sort_by" value="pets" class="link-button">
+    Sort by number of pets
+  </button>
+</form>
+<form method="patch" action="/shelters">
+  <button type="submit" name="sort_by" value="alphabetical" class="link-button">
+    Sort alphabetically
+  </button>
+</form>
+</center>

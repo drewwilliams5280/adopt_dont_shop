@@ -1,7 +1,13 @@
 class PetsController < ApplicationController
 
   def index
-    @pets = Pet.all
+    if params[:adoptable] == "true"
+      @pets = Pet.all.find_all {|pet| pet.status == "Adoptable"}
+    elsif params[:adoptable] == "false"
+      @pets = Pet.all.find_all {|pet| pet.status == "Pending Adoption"}
+    else
+      @pets = Pet.all
+    end
   end
 
   def show

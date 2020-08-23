@@ -1,7 +1,13 @@
 class SheltersController < ApplicationController
 
   def index
-    @shelters = Shelter.all
+    if params[:sort_by] == "pets"
+      @shelters = Shelter.all.sort_by {|shelter| shelter.pets.count}.reverse
+    elsif params[:sort_by] == "alphabetical"
+      @shelters = Shelter.all.sort_by {|shelter| shelter.name}
+    else
+      @shelters = Shelter.all
+    end
   end
 
   def show
@@ -42,6 +48,11 @@ class SheltersController < ApplicationController
 
   def destroy
     Shelter.destroy(params[:id])
+    redirect_to '/shelters'
+  end
+
+  def sort
+    @shelters = Shelter.all.sort_by {|shelter| shelter.pets.count}
     redirect_to '/shelters'
   end
 

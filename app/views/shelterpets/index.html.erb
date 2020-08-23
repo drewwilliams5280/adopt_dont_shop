@@ -2,7 +2,20 @@
   <h1><%= @shelter.name %></h1>
   <h3>Number of pets: <%= @shelter_pets.count %></h3>
 </div>
-
+<br>
+<center>
+  <form method="patch" action="/shelters/<%= @shelter.id %>/pets">
+    <button type="submit" name="adoptable" value="true" class="link-button">
+      See only adoptable pets
+    </button>
+  </form>
+  <form method="patch" action="/shelters/<%= @shelter.id %>/pets">
+    <button type="submit" name="adoptable" value="false" class="link-button">
+      See only pets pending adoption
+    </button>
+  </form>
+</center>
+<br>
 <div class="row">
 <% @shelter_pets.sort_by {|pet| pet.status}.each do |pet| %>
   <div class="column">
