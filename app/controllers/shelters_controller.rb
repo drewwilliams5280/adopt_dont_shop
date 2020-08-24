@@ -2,9 +2,9 @@ class SheltersController < ApplicationController
 
   def index
     if params[:sort_by] == "pets"
-      @shelters = Shelter.all.sort_by {|shelter| shelter.pets.count}.reverse
+      @shelters = Shelter.sort_by_pet_count
     elsif params[:sort_by] == "alphabetical"
-      @shelters = Shelter.all.sort_by {|shelter| shelter.name}
+      @shelters = Shelter.sort_by_name
     else
       @shelters = Shelter.all
     end
