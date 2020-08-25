@@ -1,4 +1,7 @@
 <center>
+  <% if flash[:notice] %>
+  <div style='color:red;font-size:40px;' class="notice"><%= flash[:notice] %></div>
+  <% end %>
 <%= form_tag "/shelters/#{@shelter.id}/review" do %>
   <%= label_tag :title %>
   <%= text_field_tag :title %><br>
