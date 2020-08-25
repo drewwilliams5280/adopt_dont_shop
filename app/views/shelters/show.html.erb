@@ -21,6 +21,7 @@ Rating (Out of 5): <%= review.rating %><br>
 Review: <%= review.content %><br>
 <img src="<%= review.picture %>" alt="<%= review.title %>" height="180"></p>
 <%= link_to 'Edit Review', "/shelters/#{@shelter.id}/#{review.id}/edit" %>
+<%= link_to 'Delete Review', "/shelters/#{@shelter.id}/#{review.id}", :method => :delete %>
 <% end %>
 </div>
 <%= link_to 'New Review', "/shelters/#{@shelter.id}/review" %>
