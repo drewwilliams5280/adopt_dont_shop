@@ -149,7 +149,7 @@ RSpec.describe "shelters show page", type: :feature do
 
   end
 
-  it "can give flash message when review fields aren't filled in" do #User Story 4
+  it "can give flash message when review fields aren't filled in" do #User Story 6
     shelter_1 = Shelter.create( name: "Drew's Rescue",
                                 address: "1300 Willow St.",
                                 city: "Denver",
@@ -177,4 +177,22 @@ RSpec.describe "shelters show page", type: :feature do
 
   end
 
+  it "can delete a review" do #User Story 7
+    shelter_1 = Shelter.create( name: "Drew's Rescue",
+                                address: "1300 Willow St.",
+                                city: "Denver",
+                                state: "CO",
+                                zip: 80220,
+                                )
+    review_1 = shelter_1.reviews.create!(title: "Terrible Service",
+                              rating: "2",
+                              content: "Manager was very rude and slapped a kitten!",
+                              picture: "https://www.catster.com/wp-content/uploads/2017/12/Sad-young-brown-tabby-kitten.jpg"
+                              )
+    visit "/shelters/#{shelter_1.id}"
+    expect(page).to have_link("Delete Review")
+    click_on "Delete Review"
+    expect(current_path).to eq("/shelters/#{shelter_1.id}")
+    expect(page).to_not have_content('Terrible Service')
+  end
 end
