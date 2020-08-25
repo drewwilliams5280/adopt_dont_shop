@@ -132,12 +132,14 @@ RSpec.describe "shelters show page", type: :feature do
                               content: "Manager was very rude and slapped a kitten!",
                               picture: "https://www.catster.com/wp-content/uploads/2017/12/Sad-young-brown-tabby-kitten.jpg"
                               )
-
+    visit "/shelters/#{shelter_1.id}"
     click_on "Edit Review"
     expect(current_path).to eq("/shelters/#{shelter_1.id}/#{review_1.id}/edit")
-    expect(page).to have_content("#{review_1.title}")
-    expect(page).to have_content("#{review_1.rating}")
-    expect(page).to have_content("#{review_1.content}")
+    save_and_open_page
+    expect(page).to have_field(:title, with: "#{review_1.title}")
+    # expect(form).to have_content("#{review_1.title}")
+    # expect(page).to have_content("#{review_1.rating}")
+    # expect(page).to have_content("#{review_1.content}")
     fill_in :rating, with: "5"
     fill_in :content, with: "This place rocks!"
     fill_in :title, with: "Changed my mind!"
