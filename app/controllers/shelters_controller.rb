@@ -56,4 +56,19 @@ class SheltersController < ApplicationController
     redirect_to '/shelters'
   end
 
+  def review
+    @shelter = Shelter.find(params[:id])
+  end
+
+  def reviewcreate
+    review = Review.create!({
+      title: params[:title],
+      content: params[:content],
+      picture: params[:picture],
+      rating: params[:rating],
+      shelter_id: params[:id]
+      })
+      redirect_to "/shelters/#{params[:id]}"
+  end
+
 end

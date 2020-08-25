@@ -10,3 +10,14 @@
 <h5><a href="/shelters/<%= @shelter.id %>/edit">Update Shelter</a></h5>
 <h5><a href="/shelters/<%= @shelter.id %>/delete">Delete Shelter</a></h5>
 </div>
+<center>
+<div style="width:300px;height:600px;line-height:3em;overflow:scroll;padding:5px;background-color:#FCFADD;color:#714D03;border:4px double #DEBB07;">
+<% @shelter.reviews.each do |review| %>
+<p>Title: <%= review.title %><br>
+Rating (Out of 5): <%= review.rating %><br>
+Review: <%= review.content %><br>
+<img src="<%= review.picture %>" alt="<%= review.title %>" height="180"></p>
+<% end %>
+</div>
+<%= link_to 'New Review', "/shelters/#{@shelter.id}/review" %>
+</center>
