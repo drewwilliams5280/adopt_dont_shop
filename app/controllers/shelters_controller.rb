@@ -61,14 +61,15 @@ class SheltersController < ApplicationController
   end
 
   def reviewcreate
-    review = Review.create!({
-      title: params[:title],
-      content: params[:content],
-      picture: params[:picture],
-      rating: params[:rating],
-      shelter_id: params[:id]
-      })
-      redirect_to "/shelters/#{params[:id]}"
+    review = Review.new(review_params)
+    review.shelter_id = params[:id]
+    review.save!
+    redirect_to "/shelters/#{params[:id]}"
+  end
+
+  private
+  def review_params
+    params.permit(:title, :content, :picture, :rating)
   end
 
 end
