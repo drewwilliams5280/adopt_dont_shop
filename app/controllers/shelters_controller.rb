@@ -78,10 +78,16 @@ class SheltersController < ApplicationController
   end
 
   def reviewupdate
+    if params[:content] == "" || params[:rating] == "" || params[:title] == ""
+      flash[:notice] = "Please fill in Title, Rating, and Review sections"
+      redirect_to "/shelters/#{params[:id]}/#{params[:review_id]}/edit"
+    else
     review = Review.find(params[:review_id])
     review.update(review_params)
-    review.save
+    review.save!
+    flash[:notice] = "Review Successfully Updated"
     redirect_to "/shelters/#{review.shelter.id}"
+  end
   end
 
   private
