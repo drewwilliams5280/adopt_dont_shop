@@ -10,12 +10,11 @@
 <br>
 <center>
 <a href="/shelters/new">New Shelter</a>
-<!-- <form method="get" action="/shelters">
+<form method="get" action="/shelters">
   <button type="submit" name="sort_by" value="pets" class="link-button">
     Sort by number of pets
   </button>
-</form> -->
- <%= button_to "Sort by number of pets", "/shelters", method: "get", params: {sort_by: "pets"} %>
+</form>
 <form method="get" action="/shelters">
   <button type="submit" name="sort_by" value="alphabetical" class="link-button">
     Sort alphabetically
