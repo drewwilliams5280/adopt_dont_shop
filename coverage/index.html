@@ -14,7 +14,7 @@
       <img src="./assets/0.12.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2020-08-24T22:11:26-06:00">2020-08-24T22:11:26-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2020-08-25T11:36:07-06:00">2020-08-25T11:36:07-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="green">
-  96.65%
+  94.44%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.21
+         1.18
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>418</b> relevant lines,
-    <span class="green"><b>404</b> lines covered</span> and
-    <span class="red"><b>14</b> lines missed. </span>
+    <b>432</b> relevant lines,
+    <span class="green"><b>408</b> lines covered</span> and
+    <span class="red"><b>24</b> lines missed. </span>
     (<span class="green">
-  96.65%
+  94.44%
 </span>
 )
   </div>
@@ -402,12 +402,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#6315f799432f7766696c75aae55241e01b97bd97" class="src_link" title="spec/features/shelters/show_spec.rb">spec/features/shelters/show_spec.rb</a></td>
-            <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">122</td>
-            <td class="cell--number">55</td>
-            <td class="cell--number">55</td>
-            <td class="cell--number">0</td>
-            <td class="cell--number">1.00</td>
+            <td class="yellow strong cell--number t-file__coverage">85.51 %</td>
+            <td class="cell--number">151</td>
+            <td class="cell--number">69</td>
+            <td class="cell--number">59</td>
+            <td class="cell--number">10</td>
+            <td class="cell--number">0.86</td>
             
           </tr>
         
@@ -10206,8 +10206,8 @@
   <div class="header">
     <h3>spec/features/shelters/show_spec.rb</h3>
     <h4>
-      <span class="green">
-  100.0%
+      <span class="yellow">
+  85.51%
 </span>
 
       lines covered
@@ -10216,9 +10216,9 @@
     
 
     <div class="t-line-summary">
-      <b>55</b> relevant lines.
-      <span class="green"><b>55</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <b>69</b> relevant lines.
+      <span class="green"><b>59</b> lines covered</span> and
+      <span class="red"><b>10</b> lines missed.</span>
     </div>
 
     
@@ -11280,7 +11280,7 @@
 
             
 
-            <code class="ruby">  it &quot;can give flash message when fields aren&#39;t filled in&quot; do</code>
+            <code class="ruby">  it &quot;can give flash message when fields aren&#39;t filled in&quot; do #User Story 4</code>
           </li>
         </div>
       
@@ -11560,7 +11560,326 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="122">
+          <li class="covered" data-hits="1" data-linenumber="122">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  it &quot;can see link to edit review and edit that review&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="123">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="124">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    shelter_1 = Shelter.create( name: &quot;Drew&#39;s Rescue&quot;,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="125">
+            
+            
+
+            
+
+            <code class="ruby">                                address: &quot;1300 Willow St.&quot;,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="126">
+            
+            
+
+            
+
+            <code class="ruby">                                city: &quot;Denver&quot;,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="127">
+            
+            
+
+            
+
+            <code class="ruby">                                state: &quot;CO&quot;,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="128">
+            
+            
+
+            
+
+            <code class="ruby">                                zip: 80220,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="129">
+            
+            
+
+            
+
+            <code class="ruby">                                )</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="130">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    review_1 = shelter_1.reviews.create!(title: &quot;Terrible Service&quot;,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="131">
+            
+            
+
+            
+
+            <code class="ruby">                              rating: &quot;2&quot;,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="132">
+            
+            
+
+            
+
+            <code class="ruby">                              content: &quot;Manager was very rude and slapped a kitten!&quot;,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="133">
+            
+            
+
+            
+
+            <code class="ruby">                              picture: &quot;https://www.catster.com/wp-content/uploads/2017/12/Sad-young-brown-tabby-kitten.jpg&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="134">
+            
+            
+
+            
+
+            <code class="ruby">                              )</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="135">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="136">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    click_on &quot;Edit Review&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="137">
+            
+            
+
+            
+
+            <code class="ruby">    expect(current_path).to eq(&quot;/shelters/#{shelter_1.id}/#{review_1.id}/edit&quot;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="138">
+            
+            
+
+            
+
+            <code class="ruby">    expect(page).to have_content(&quot;#{review_1.title}&quot;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="139">
+            
+            
+
+            
+
+            <code class="ruby">    expect(page).to have_content(&quot;#{review_1.rating}&quot;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="140">
+            
+            
+
+            
+
+            <code class="ruby">    expect(page).to have_content(&quot;#{review_1.content}&quot;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="141">
+            
+            
+
+            
+
+            <code class="ruby">    fill_in :rating, with: &quot;5&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="142">
+            
+            
+
+            
+
+            <code class="ruby">    fill_in :content, with: &quot;This place rocks!&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="143">
+            
+            
+
+            
+
+            <code class="ruby">    fill_in :title, with: &quot;Changed my mind!&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="144">
+            
+            
+
+            
+
+            <code class="ruby">    # fill_in :picture, with: &quot;https://lh3.googleusercontent.com/proxy/M0EPbDwsZdDe2dZ4-7Gs9CvpLMgMR65WNr6PIQRBKe4TCdwjLO3Kk1VwHMQnx4CS8ogurhRtTqYOZRoHkNGlO28Iz_hmHgfwcx2LqrTfOidGZ8mMVw&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="145">
+            
+            
+
+            
+
+            <code class="ruby">    expect(page).to have_button(&quot;Submit&quot;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="146">
+            
+            
+
+            
+
+            <code class="ruby">    click_on &quot;Submit&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="147">
+            
+            
+
+            
+
+            <code class="ruby">    expect(current_path).to eq(&quot;/shelters/#{shelter_1.id}&quot;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="148">
+            
+            
+
+            
+
+            <code class="ruby">    </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="149">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="150">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="151">
             
             
 
