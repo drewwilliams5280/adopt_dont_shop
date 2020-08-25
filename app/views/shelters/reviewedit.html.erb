@@ -1,0 +1,17 @@
+<center>
+  <% if flash[:notice] %>
+  <div style='color:red;font-size:40px;' class="notice"><%= flash[:notice] %></div>
+  <% end %>
+<%= form_tag "/shelters/#{@review.shelter_id}/#{@review.id}", method: (:patch) do  %>
+  <%= label_tag :title %>
+  <%= text_field_tag :title, "#{@review.title}" %><br>
+  <%= label_tag :rating_out_of_5 %>
+  <%= text_field_tag :rating, "#{@review.rating}" %><br>
+  <%= label_tag :review %>
+  <%= text_field_tag :content, "#{@review.content}" %><br>
+  <%= label_tag :picture_url %>
+  <%= text_field_tag :picture, "#{@review.picture}" %>
+<br>
+  <%= submit_tag 'Submit' %>
+<% end %>
+</center>
