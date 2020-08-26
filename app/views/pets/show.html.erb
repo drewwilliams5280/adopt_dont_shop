@@ -4,6 +4,9 @@
 </div>
 
 <div class="show">
+  <% if flash[:notice] %>
+  <div style='color:red;font-size:40px;' class="notice"><%= flash[:notice] %></div>
+  <% end %>
 <img src="<%= @pet.image_path %>" alt="<%= @pet.name %>" width="400">
 <p>Approximate age: <%= @pet.approximate_age%></p>
 <p>Sex: <%= @pet.sex %></p>
@@ -36,5 +39,7 @@
   </form>
 <% end %>
 <h5><a href="/pets/<%= @pet.id %>/edit">Update Pet</a></h5>
-<h5><a href="/pets/<%= @pet.id %>/delete">Delete Pet</a></h5>
+<h5><a href="/pets/<%= @pet.id %>/delete">Delete Pet</a></h5><br>
+<%= button_to "Favorite Pet ", controller: "favorites", pet_id: @pet.id %>
+
 </div>
