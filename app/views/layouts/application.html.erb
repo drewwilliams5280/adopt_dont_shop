@@ -16,7 +16,7 @@
         <%= link_to "Shelters", controller: "shelters" %>
       </div>
       <div class="right-nav">
-        <%= button_to "Favorites:#{Favorite.all.count}", controller: "favorites"  %>
+        <%= link_to "Favorites:#{Favorite.all.count}", controller: "favorites"  %>
       </div>
     </header>
     <div class='content'>
