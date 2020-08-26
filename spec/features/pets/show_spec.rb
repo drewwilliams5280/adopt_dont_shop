@@ -93,7 +93,6 @@ RSpec.describe "pets show page", type: :feature do
       expect(page).to have_content("#{jasper.name} has been added to your favorites")
       expect(page).to have_link("Favorites: 1")
 
-
     end
 
 

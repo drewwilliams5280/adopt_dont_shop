@@ -136,9 +136,6 @@ RSpec.describe "shelters show page", type: :feature do
     click_on "Edit Review"
     expect(current_path).to eq("/shelters/#{shelter_1.id}/#{review_1.id}/edit")
     expect(page).to have_field(:title, with: "#{review_1.title}")
-    # expect(form).to have_content("#{review_1.title}")
-    # expect(page).to have_content("#{review_1.rating}")
-    # expect(page).to have_content("#{review_1.content}")
     fill_in :rating, with: "5"
     fill_in :content, with: "This place rocks!"
     fill_in :title, with: "Changed my mind!"

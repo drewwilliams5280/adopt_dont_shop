@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2020_08_26_045334) do
     t.string "title"
     t.string "rating"
     t.string "content"
-    t.string "picture"
+    t.string "picture", default: "/app/assets/images/review.jpg"
     t.bigint "shelter_id"
     t.index ["shelter_id"], name: "index_reviews_on_shelter_id"
   end
