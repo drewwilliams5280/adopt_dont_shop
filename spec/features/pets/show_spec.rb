@@ -87,10 +87,11 @@ RSpec.describe "pets show page", type: :feature do
       tasha = shelter_1.pets.create!(status: "Pending Adoption", name: "Tasha", approximate_age: 4, sex: "Female", image_path: "https://www.thesprucepets.com/thmb/ma-SKxXBI5uvv_H0McPOhfCZajU=/1415x1415/smart/filters:no_upscale()/DobermanPinscher-GettyImages-947977330-4309781e940842368e71ef744caa4f9c.jpg")
       visit "/pets/#{jasper.id}"
       click_on "Favorite Pet"
+
       expect(current_path).to eq("/pets/#{jasper.id}")
-      
+
       expect(page).to have_content("#{jasper.name} has been added to your favorites")
-      expect(page).to have_button("Favorites:1")
+      expect(page).to have_link("Favorites:1")
 
 
     end
