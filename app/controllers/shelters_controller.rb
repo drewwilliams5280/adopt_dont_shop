@@ -65,6 +65,9 @@ class SheltersController < ApplicationController
       flash[:notice] = "Please fill in Title, Rating, and Review sections"
       redirect_to "/shelters/#{params[:id]}/review"
     else
+      if params[:picture].empty?
+        params[:picture] = "https://library.kissclipart.com/20180918/fve/kissclipart-5-star-review-icon-clipart-computer-icons-customer-8cca472f2faf8b7d.jpg"
+      end
       review = Review.new(review_params)
       review.shelter_id = params[:id]
       review.save!
@@ -82,6 +85,9 @@ class SheltersController < ApplicationController
       flash[:notice] = "Please fill in Title, Rating, and Review sections"
       redirect_to "/shelters/#{params[:id]}/#{params[:review_id]}/edit"
     else
+      if params[:picture].empty?
+        params[:picture] = "https://library.kissclipart.com/20180918/fve/kissclipart-5-star-review-icon-clipart-computer-icons-customer-8cca472f2faf8b7d.jpg"
+      end
     review = Review.find(params[:review_id])
     review.update(review_params)
     review.save!

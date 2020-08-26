@@ -19,7 +19,7 @@
 <p>Title: <%= review.title %><br>
 Rating (Out of 5): <%= review.rating %><br>
 Review: <%= review.content %><br>
-<img src="<%= review.picture %>" alt="<%= review.title %>" height="180"></p>
+<%= image_tag("review.jpg", width: '225') %><br>
 <%= link_to 'Edit Review', "/shelters/#{@shelter.id}/#{review.id}/edit" %>
 <%= link_to 'Delete Review', "/shelters/#{@shelter.id}/#{review.id}", :method => :delete %>
 <% end %>
