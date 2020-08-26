@@ -267,12 +267,43 @@
           1,
           1,
           1,
+          1,
           null
         ]
       },
       "/Users/brettsherman/turing/mod_2/adopt_dont_shop/app/helpers/application_helper.rb": {
         "lines": [
           1,
+          null
+        ]
+      },
+      "/Users/brettsherman/turing/mod_2/adopt_dont_shop/spec/features/pets/edit_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
           null
         ]
       },
@@ -901,6 +932,7 @@
           1,
           1,
           1,
+          1,
           null
         ]
       },
@@ -950,85 +982,17 @@
           null
         ]
       },
-      "/Users/brettsherman/turing/mod_2/adopt_dont_shop/app/controllers/pets_controller.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          7,
-          0,
-          7,
-          0,
-          null,
-          7,
-          null,
-          null,
-          null,
-          1,
-          9,
-          null,
-          null,
-          1,
-          2,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          3,
-          null,
-          null,
-          1,
-          3,
-          3,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          3,
-          3,
-          null,
-          null,
-          1,
-          2,
-          2,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/brettsherman/turing/mod_2/adopt_dont_shop/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
       "/Users/brettsherman/turing/mod_2/adopt_dont_shop/app/controllers/shelters_controller.rb": {
         "lines": [
           1,
           null,
           1,
-          8,
+          9,
           0,
-          8,
+          9,
           0,
           null,
-          8,
+          9,
           null,
           null,
           null,
@@ -1120,6 +1084,81 @@
           null
         ]
       },
+      "/Users/brettsherman/turing/mod_2/adopt_dont_shop/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/brettsherman/turing/mod_2/adopt_dont_shop/app/models/favorite.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/brettsherman/turing/mod_2/adopt_dont_shop/app/controllers/pets_controller.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          7,
+          0,
+          7,
+          0,
+          null,
+          7,
+          null,
+          null,
+          null,
+          1,
+          9,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          3,
+          null,
+          null,
+          1,
+          3,
+          3,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          3,
+          3,
+          null,
+          null,
+          1,
+          2,
+          2,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/brettsherman/turing/mod_2/adopt_dont_shop/app/models/review.rb": {
         "lines": [
           1,
@@ -1163,6 +1202,6 @@
         ]
       }
     },
-    "timestamp": 1598392613
+    "timestamp": 1598408770
   }
 }

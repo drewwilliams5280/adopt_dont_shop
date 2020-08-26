@@ -11,11 +11,12 @@
 
   <body>
     <header class='clearfix'>
-      <div class="left-nav">
-        <%= link_to "Pets", controller: "pets" %>
+      <div class="left-nav" >
+        <%= button_to "Pets", controller: "pets" %>
+        <%= button_to "Shelters", controller: "shelters" %>
       </div>
       <div class="right-nav">
-        <%= link_to "Shelters", controller: "shelters" %>
+        <%= button_to "Favorites:#{Favorite.all.count}", controller: "favorites"  %>
       </div>
     </header>
     <div class='content'>
