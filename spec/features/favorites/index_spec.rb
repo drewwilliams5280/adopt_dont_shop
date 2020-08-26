@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "favorites index page", type: :feature do
 
-  it "can see favorite pets and click favorite indicator link" do
+  it "can see favorite pets and click pet name link" do #User Story 10
 
     shelter_1 = Shelter.create( name: "Drew's Rescue",
                                 address: "208 Main St.",
