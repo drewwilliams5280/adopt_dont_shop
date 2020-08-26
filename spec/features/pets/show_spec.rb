@@ -91,7 +91,7 @@ RSpec.describe "pets show page", type: :feature do
       expect(current_path).to eq("/pets/#{jasper.id}")
 
       expect(page).to have_content("#{jasper.name} has been added to your favorites")
-      expect(page).to have_link("Favorites:1")
+      expect(page).to have_link("Favorites: 1")
 
 
     end
