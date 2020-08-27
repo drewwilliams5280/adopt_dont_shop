@@ -11,9 +11,16 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @favorite_id = Favorite.where(pet_id: params[:pet_id]).pluck(:id)
-    Favorite.destroy(@favorite_id)
-    redirect_to "/pets/#{params[:pet_id]}"
-    flash[:notice] = "#{Pet.find(params[:pet_id]).name} has been removed from your favorites"
+    if @_request.env["HTTP_REFERER"].include?("pets")
+      @favorite_id = Favorite.where(pet_id: params[:id]).pluck(:id)
+      Favorite.destroy(@favorite_id)
+      redirect_to "/pets/#{params[:id]}"
+      flash[:notice] = "#{Pet.find(params[:id]).name} has been removed from your favorites"
+    elsif @_request.env["HTTP_REFERER"].include?("favorites")
+      flash[:notice] = "#{Favorite.find(params[:id]).pet.name} has been removed from your favorites"
+      Favorite.destroy(params[:id])
+      redirect_to "/favorites"
+    end
   end
+
 end
