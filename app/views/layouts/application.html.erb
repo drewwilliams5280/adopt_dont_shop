@@ -16,7 +16,11 @@
         <%= link_to "Shelters", controller: "shelters" %>
       </div>
       <div class="right-nav" >
+        <% if session[:favorites] %>
+        <%= link_to "Favorites: #{session[:favorites].count}" %>
+        <% else %>
         <%= link_to "Favorites: 0" %>
+        <% end %>
       </div>
     </header>
     <div class='content'>
