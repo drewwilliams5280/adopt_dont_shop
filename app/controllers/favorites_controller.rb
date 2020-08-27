@@ -1,6 +1,12 @@
 class FavoritesController < ApplicationController
+
   def index
-    @favorites = Favorite.all
+    if !Favorite.all.empty?
+      @favorites = Favorite.all
+    else
+      flash[:notice] = "You don't have any favorites yet"
+      @favorites = []
+    end
   end
 
   def new
