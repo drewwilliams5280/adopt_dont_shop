@@ -29,4 +29,9 @@ class FavoritesController < ApplicationController
     end
   end
 
+  def destroyall
+    Favorite.destroy_all
+    redirect_to "/favorites"
+  end
+
 end
