@@ -40,6 +40,10 @@
 <% end %>
 <h5><a href="/pets/<%= @pet.id %>/edit">Update Pet</a></h5>
 <h5><a href="/pets/<%= @pet.id %>/delete">Delete Pet</a></h5><br>
+<% if @pet.favorites.where(pet_id: @pet.id).empty? %>
 <%= button_to "Favorite Pet", controller: "favorites", pet_id: @pet.id %>
+<% else %>
+<%= link_to 'Remove from Favorites', "/favorites/#{@pet.id}", :method => :delete %>
+<% end %>
 
 </div>
