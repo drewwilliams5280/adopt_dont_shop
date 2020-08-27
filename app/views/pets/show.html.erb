@@ -4,9 +4,6 @@
 </div>
 
 <div class="show">
-  <% if flash[:notice] %>
-  <div style='color:red;font-size:40px;' class="notice"><%= flash[:notice] %></div>
-  <% end %>
 <img src="<%= @pet.image_path %>" alt="<%= @pet.name %>" width="400">
 <p>Approximate age: <%= @pet.approximate_age%></p>
 <p>Sex: <%= @pet.sex %></p>
