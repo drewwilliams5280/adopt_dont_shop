@@ -15,7 +15,7 @@ class FavoritesController < ApplicationController
      end
    end
 
-   def delete
+   def destroy
      pet = session[:favorites].delete(params[:pet_id])
      flash[:notice] = "#{Pet.find(params[:pet_id]).name} has been removed from your Favorites!"
      if @_request.env["HTTP_REFERER"].include?("pets")
@@ -24,4 +24,10 @@ class FavoritesController < ApplicationController
        redirect_to "/favorites"
      end
    end
+
+   def destroyall
+     session[:favorites] = Array.new
+     redirect_to '/favorites'
+   end
+
 end
