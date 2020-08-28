@@ -36,6 +36,10 @@
 <% end %>
 <h5><a href="/pets/<%= @pet.id %>/edit">Update Pet</a></h5>
 <h5><a href="/pets/<%= @pet.id %>/delete">Delete Pet</a></h5><br>
+<% if session[:favorites] && session[:favorites].include?(@pet.id.to_s) %>
+<%= link_to 'Remove from Favorites', "/favorites/#{@pet.id}", :method => :delete %>
+<% else %>
 <%= link_to "Add to Favorites", "/favorites/#{@pet.id}", method: :patch %>
+<% end %>
 
 </div>
