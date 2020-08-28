@@ -77,5 +77,27 @@ RSpec.describe "favorites indicator", type: :feature do #user story 8
       expect(page).to have_content(jasper.name)
     end
 
+    it "has a favorite button" do #group user story 12
+      shelter_1 = Shelter.create( name: "Drew's Rescue",
+                                  address: "208 Main St.",
+                                  city: "Denver",
+                                  state: "CO",
+                                  zip: 80222,
+                                  )
+      jasper = shelter_1.pets.create!(name: "Jasper", approximate_age: 7, sex: "Male", image_path: "https://dogzone-tcwebsites.netdna-ssl.com/wp-content/uploads/2018/07/pomeranian-price-1.jpg")
+      tasha = shelter_1.pets.create!(status: "Pending Adoption", name: "Tasha", approximate_age: 4, sex: "Female", image_path: "https://www.thesprucepets.com/thmb/ma-SKxXBI5uvv_H0McPOhfCZajU=/1415x1415/smart/filters:no_upscale()/DobermanPinscher-GettyImages-947977330-4309781e940842368e71ef744caa4f9c.jpg")
+      visit "/pets/#{jasper.id}"
+      click_on "Add to Favorites"
+      visit "/pets/#{jasper.id}"
+      expect(page).to_not have_link("Add to Favorites")
+      expect(page).to have_link("Remove from Favorites")
+      click_on "Remove from Favorites"
+      expect(current_path).to eq("/pets/#{jasper.id}")
+      expect(page).to have_link("Favorites: 0")
+      expect(page).to have_content("#{jasper.name} has been removed from your Favorites!")
+      expect(page).to have_link("Add to Favorites")
+
+    end
+
 
 end
