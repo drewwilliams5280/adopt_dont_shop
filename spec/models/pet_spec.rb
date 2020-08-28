@@ -8,4 +8,9 @@ describe Pet, type: :model do
     it { should validate_presence_of :sex }
   end
 
+  describe 'relationships' do
+  it {should have_many :pet_applications}
+  it {should have_many(:applications).through(:pet_applications)}
+end
+
 end

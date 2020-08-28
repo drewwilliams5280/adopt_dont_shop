@@ -8,6 +8,7 @@
 Review.destroy_all
 Pet.destroy_all
 Shelter.destroy_all
+Application.destroy_all
 
 shelter_1 = Shelter.create( name: "Drew's Rescue",
                             address: "208 Main St.",
@@ -78,3 +79,7 @@ henry = shelter_6.pets.create!(name: "Henry", approximate_age: 8, sex: "Male", i
 ben = shelter_6.pets.create!(name: "Ben", approximate_age: 3, sex: "Male", image_path: "https://ak.picdn.net/shutterstock/videos/1007192626/thumb/1.jpg")
 shirley = shelter_6.pets.create!(name: "Shirley", approximate_age: 6, sex: "Female", image_path: "https://i.ytimg.com/vi/e3yDayWrTyw/maxresdefault.jpg")
 max = shelter_6.pets.create!(name: "Max", approximate_age: 3, sex: "Male", image_path: "https://i.pinimg.com/236x/41/9d/54/419d5479ec3c3d495cefca011277da16--silly-cats-funny-kitties.jpg")
+5.times do
+  Application.create!(name: "#{Faker::Name.first_name} #{Faker::Artist.name}", address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: 80202, phone_number: Faker::PhoneNumber.cell_phone, description: Faker::Hipster.sentence)
+end
+binding.pry
