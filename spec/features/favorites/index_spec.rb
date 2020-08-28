@@ -24,22 +24,24 @@ RSpec.describe "favorites index page", type: :feature do
    expect(current_path).to eq("/favorites")
    expect(page).to_not have_link("Jasper")
   end
+
+
+
+ it "can give flash message for no favorites" do #User Story 14
+
+   shelter_1 = Shelter.create( name: "Drew's Rescue",
+                               address: "208 Main St.",
+                               city: "Denver",
+                               state: "CO",
+                               zip: 80222,
+                               )
+   jasper = shelter_1.pets.create!(name: "Jasper", approximate_age: 7, sex: "Male", image_path: "https://dogzone-tcwebsites.netdna-ssl.com/wp-content/uploads/2018/07/pomeranian-price-1.jpg")
+   visit "/favorites"
+   expect(page).to have_content("You don't have any favorites!")
+ end
+
+
 end
-
-
- #
- # it "can give flash message for no favorites" do #User Story 14
- #
- #   shelter_1 = Shelter.create( name: "Drew's Rescue",
- #                               address: "208 Main St.",
- #                               city: "Denver",
- #                               state: "CO",
- #                               zip: 80222,
- #                               )
- #   jasper = shelter_1.pets.create!(name: "Jasper", approximate_age: 7, sex: "Male", image_path: "https://dogzone-tcwebsites.netdna-ssl.com/wp-content/uploads/2018/07/pomeranian-price-1.jpg")
- #   visit "/favorites"
- #   expect(page).to have_content("You don't have any favorites yet")
- # end
  #
  # it "can remove all favorite pets" do #User Story 15
  #
