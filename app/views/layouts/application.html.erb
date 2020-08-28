@@ -17,9 +17,9 @@
       </div>
       <div class="right-nav" >
         <% if session[:favorites] %>
-        <%= link_to "Favorites: #{session[:favorites].count}" %>
+        <%= link_to "Favorites: #{session[:favorites].count}", "/favorites" %>
         <% else %>
-        <%= link_to "Favorites: 0" %>
+        <%= link_to "Favorites: 0", "/favorites" %>
         <% end %>
       </div>
     </header>
