@@ -10,7 +10,9 @@ class FavoritesController < ApplicationController
   end
 
    def index
-
+     if session[:favorites] == nil || session[:favorites].count == 0
+       flash.now[:no_favorites] = "You don't have any favorites!"
+     end
    end
 
    def delete
