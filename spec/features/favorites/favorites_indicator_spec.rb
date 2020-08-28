@@ -77,7 +77,7 @@ RSpec.describe "favorites indicator", type: :feature do #user story 8
       expect(page).to have_content(jasper.name)
     end
 
-    it "has a favorite button" do #group user story 12
+    it "has a favorite button and remove button" do #group user story 12
       shelter_1 = Shelter.create( name: "Drew's Rescue",
                                   address: "208 Main St.",
                                   city: "Denver",
