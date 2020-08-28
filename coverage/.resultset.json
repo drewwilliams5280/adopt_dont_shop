@@ -1053,6 +1053,68 @@
           null
         ]
       },
+      "/Users/drewwilliams/turing/2module/projects/adopt_dont_shop/spec/models/application_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          null,
+          null,
+          1,
+          2,
+          2,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/drewwilliams/turing/2module/projects/adopt_dont_shop/app/models/application.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/drewwilliams/turing/2module/projects/adopt_dont_shop/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/drewwilliams/turing/2module/projects/adopt_dont_shop/spec/models/pet_application_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          2,
+          2,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/drewwilliams/turing/2module/projects/adopt_dont_shop/app/models/pet_application.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/drewwilliams/turing/2module/projects/adopt_dont_shop/spec/models/pet_spec.rb": {
         "lines": [
           1,
@@ -1065,6 +1127,11 @@
           2,
           null,
           null,
+          1,
+          2,
+          2,
+          null,
+          null,
           null
         ]
       },
@@ -1073,11 +1140,6 @@
           1,
           1,
           1,
-          null
-        ]
-      },
-      "/Users/drewwilliams/turing/2module/projects/adopt_dont_shop/app/models/application_record.rb": {
-        "lines": [
           1,
           1,
           null
@@ -1383,6 +1445,6 @@
         ]
       }
     },
-    "timestamp": 1598655011
+    "timestamp": 1598658085
   }
 }
