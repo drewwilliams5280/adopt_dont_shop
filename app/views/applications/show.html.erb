@@ -10,9 +10,20 @@
 <p><%= "Phone Number:#{@application.phone_number}" %></p>
 <p><%= "Description:#{@application.description}" %></p>
 <h4> Pets </h4>
-<p>
 <% @application.pets.each do |pet|%>
 <%=  link_to "#{pet.name}", "/pets/#{pet.id}" %>
+<form action="/pets/<%= pet.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <input type="hidden" name="pet[shelter_id]" value="<%= pet.shelter.id %>">
+  <input type='hidden' name='pet[name]' value='<%= pet.name %>'/><br/>
+  <input type='hidden' name='pet[image_path]' value='<%= pet.image_path %>'/><br/>
+  <input type='hidden' name='pet[approximate_age]' value='<%= pet.approximate_age %>'/><br/>
+  <input type='hidden' name='pet[description]' value='<%= pet.description %>'/><br/>
+  <input type='hidden' name='pet[sex]' value="<%= pet.sex %>"/><br/>
+  <input type="hidden" name='pet[status]' value="Pending (On hold for <%= @application.name %>)"/><br>
+  <input type='submit' value='Approve Application'/>
+</form>
+<br>
 <% end%>
-</p>
 </div>
