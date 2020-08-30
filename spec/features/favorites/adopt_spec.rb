@@ -101,9 +101,9 @@ it "can see all pet applications" do
   within("#favorites_right_nav") do
     click_on "Jasper"
   end
-  # save_and_open_page
   expect(page).to have_content("Jasper")
   expect(page).to have_content("7")
   expect(page).to have_content("Male")
 end
+
 end

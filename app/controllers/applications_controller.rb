@@ -1,8 +1,13 @@
 class ApplicationsController < ApplicationController
 
   def index
-    @applications = Application.all
-  end 
+    @application = Application.all
+  end
+
+  def show
+    @application = Application.find(params[:id])
+  end
+
   def new
     application = Application.new(name: params[:name][:name],
                                       address: params[:address][:address],

@@ -32,5 +32,6 @@ Rails.application.routes.draw do
   patch '/shelters/:id/:review_id', to: 'shelters#reviewupdate'
   delete '/shelters/:id/:review_id', to: 'shelters#reviewdestroy'
   post '/applications', to: 'applications#new'
+  get '/applications/:id', to: 'applications#show'
 
 end
