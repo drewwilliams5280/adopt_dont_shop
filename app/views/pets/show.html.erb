@@ -41,5 +41,5 @@
 <% else %>
 <%= link_to "Add to Favorites", "/favorites/#{@pet.id}", method: :patch %>
 <% end %>
-
+<%= link_to "View Applications", "/pets/#{@pet.id}/applications" %>
 </div>

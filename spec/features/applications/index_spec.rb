@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "favorites show page", type: :feature do
-
+RSpec.describe "pet appliocations index page", type: :feature do
 it "can see application info" do
   shelter_1 = Shelter.create( name: "Drew's Rescue",
                               address: "208 Main St.",
@@ -14,16 +13,18 @@ it "can see application info" do
   application = Application.create!(name: "Brett", address: "345 bur st.", city: "Phoenix", state: "CO", zip: 81301, phone_number: "970-677-45567", description: "I love dogs" )
   application.pets << jasper
   application.pets << tasha
-   visit "/applications/#{application.id}"
+  visit "/pets/#{jasper.id}"
+  click_on("View Applications")
+  save_and_open_page
+  click_on("Brett")
+  expect(current_path).to eq("/applications/#{application.id}")
+  expect(page).to have_content("Name:Brett")
+  expect(page).to have_content("Address:345 bur st.")
+  expect(page).to have_content("City:Phoenix")
+  expect(page).to have_content("State:CO")
+  expect(page).to have_content("Zip:81301")
+  expect(page).to have_content("Phone Number:970-677-45567")
+  expect(page).to have_content("I love dogs")
 
-   expect(page).to have_content("Name:Brett")
-   expect(page).to have_content("Address:345 bur st.")
-   expect(page).to have_content("City:Phoenix")
-   expect(page).to have_content("State:CO")
-   expect(page).to have_content("Zip:81301")
-   expect(page).to have_content("Phone Number:970-677-45567")
-   expect(page).to have_content("I love dogs")
-   expect(page).to have_content("Jasper")
-   expect(page).to have_content("Tasha")
 end
 end
