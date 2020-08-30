@@ -1,0 +1,31 @@
+<div class="pageheader">
+  <h1>Adoption Application</h1>
+  <h3>Select from your favorites and apply for adoption here</h3>
+</div>
+<div>
+<%= form_tag "/applications" do %>
+  <section>
+    <%= label_tag(:name, "Name:") %><br>
+    <%= text_field(:name, :name) %><br>
+    <%= label_tag(:address, "Street Address:") %><br>
+    <%= text_field(:address, :address) %><br>
+    <%= label_tag(:city, "City:") %><br>
+    <%= text_field(:city, :city) %><br>
+    <%= label_tag(:state, "State Abbreviation:") %><br>
+    <%= text_field(:state, :state) %><br>
+    <%= label_tag(:zip, "Zip Code:") %><br>
+    <%= text_field(:zip, :zip) %><br>
+    <%= label_tag(:phone_number, "Phone Number:") %><br>
+    <%= text_field(:phone_number, :phone_number) %><br>
+    <%= label_tag(:description, "Describe why you would make a good home for this/these pets:") %><br>
+    <%= text_field(:description, :description) %><br>
+  <% session[:favorites].each do |pet_id| %>
+    <section class="pets" id="<%= Pet.find(pet_id).name %>">
+      <%= check_box("pet", "id", {:multiple => true}, pet_id, false)%>
+      <%= label_tag("pet_id_#{pet_id}", "#{Pet.find(pet_id).name}") %><br>
+      <%= image_tag("#{Pet.find(pet_id).image_path}", height: "200") %>
+      <% end %>
+    </section>
+    <%= submit_tag 'Submit Application' %>
+  <% end %>
+</div>

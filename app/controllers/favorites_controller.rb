@@ -30,4 +30,7 @@ class FavoritesController < ApplicationController
      redirect_to '/favorites'
    end
 
+   def adopt
+   end
+
 end

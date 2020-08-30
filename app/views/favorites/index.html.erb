@@ -6,7 +6,8 @@
   <%= link_to 'Remove All Favorites', "/favorites", :method => :delete %>
 </div>
 <% if session[:favorites] %>
-  <div><% session[:favorites].each do |pet_id| %>
+  <div>
+    <% session[:favorites].each do |pet_id| %>
       <section id="pet-<%= pet_id %>">
         <%= link_to "#{Pet.find(pet_id).name}", "/pets/#{pet_id}" %>
         <%= link_to 'Remove', "/favorites/#{pet_id}", :method => :delete %>
