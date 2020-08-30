@@ -1,5 +1,8 @@
 class ApplicationsController < ApplicationController
 
+  def index
+    @applications = Application.all
+  end 
   def new
     application = Application.new(name: params[:name][:name],
                                       address: params[:address][:address],

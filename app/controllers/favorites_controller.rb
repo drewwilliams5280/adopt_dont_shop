@@ -1,5 +1,6 @@
 class FavoritesController < ApplicationController
 
+
   def update
     pet = Pet.find(params[:pet_id])
     pet_id_str = pet.id.to_s
@@ -10,6 +11,7 @@ class FavoritesController < ApplicationController
   end
 
    def index
+     @applications = PetApplication.all
      if session[:favorites] == nil || session[:favorites].count == 0
        flash.now[:no_favorites] = "You don't have any favorites!"
      end

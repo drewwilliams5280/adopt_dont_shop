@@ -17,4 +17,5 @@ RSpec.describe Application, type: :model do
     it {should have_many(:pets).through(:pet_applications)}
   end
 
+
 end

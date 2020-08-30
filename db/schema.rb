@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_08_28_232751) do
     t.string "title"
     t.string "rating"
     t.string "content"
-    t.string "picture", default: "https://library.kissclipart.com/20180918/fve/kissclipart-5-star-review-icon-clipart-computer-icons-customer-8cca472f2faf8b7d.jpg"
+    t.string "picture"
     t.bigint "shelter_id"
     t.index ["shelter_id"], name: "index_reviews_on_shelter_id"
   end

@@ -82,4 +82,3 @@ max = shelter_6.pets.create!(name: "Max", approximate_age: 3, sex: "Male", image
 5.times do
   Application.create!(name: "#{Faker::Name.first_name} #{Faker::Artist.name}", address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: 80202, phone_number: Faker::PhoneNumber.cell_phone, description: Faker::Hipster.sentence)
 end
-binding.pry
