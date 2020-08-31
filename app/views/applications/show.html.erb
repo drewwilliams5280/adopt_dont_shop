@@ -27,3 +27,15 @@
 <br>
 <% end%>
 </div>
+<div>
+<%= form_tag "/applications/approve" do %>
+  <section id="select-pets">
+  <% @application.pets.each do |pet| %>
+      <%= hidden_field_tag 'applicant_name', @application.name %>
+      <%= check_box("applied_pets", "pets", {:multiple => true}, pet.id, false)%>
+      <%= label_tag("pets", pet.name) %><br>
+      <% end %>
+    </section>
+    <%= submit_tag 'Approve Selected Pets' %>
+  <% end %>
+</div>

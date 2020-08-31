@@ -29,4 +29,11 @@ class ApplicationsController < ApplicationController
     end
   end
 
+  def approve
+    pets = params[:applied_pets][:pets]
+    Pet.where('id IN (?)', pets).update_all(status: "Pending (On hold to #{params[:applicant_name]})")
+    flash[:success] = "The selected pets have been approved."
+    redirect_to '/pets'
+  end
+
 end
