@@ -22,3 +22,15 @@
   </section>
   <%= submit_tag 'Approve Selected Pets' %>
 <% end %>
+<%= form_tag "/applications/approve", method: :patch do %>
+  <section id="unselect-pets">
+  <% @application.pets.each do |pet| %>
+      <% if pet.pending_adoption? %>
+        <%= hidden_field_tag 'application_id', @application.id %>
+        <%= check_box("applied_pets", "pets", {:multiple => true, id: pet.name}, pet.id, false)%>
+        <%= label_tag("pets", pet.name) %><br>
+      <% end %>
+    <% end %>
+  </section>
+  <%= submit_tag 'Unapprove Selected Pets' %>
+<% end %>

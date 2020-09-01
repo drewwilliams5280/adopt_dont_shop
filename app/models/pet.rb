@@ -8,4 +8,8 @@ class Pet < ApplicationRecord
     self.status == "Adoptable"
   end
 
+  def pending_adoption?
+    self.status.include?("Pending")
+  end
+
 end

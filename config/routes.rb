@@ -35,5 +35,5 @@ Rails.application.routes.draw do
   post '/applications', to: 'applications#new'
   get '/applications/:id', to: 'applications#show'
   post '/applications/approve', to: 'applications#approve'
-
+  patch '/applications/approve', to: 'applications#unapprove'
 end
