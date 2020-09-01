@@ -69,4 +69,22 @@ RSpec.describe "pets show page", type: :feature do
   end
 
 
-end
+    it "can delete pets from favorites and favorites list" do
+
+      shelter_1 = Shelter.create( name: "Drew's Rescue",
+                                  address: "208 Main St.",
+                                  city: "Denver",
+                                  state: "CO",
+                                  zip: 80222,
+                                  )
+      jasper = shelter_1.pets.create!(name: "Jasper", approximate_age: 7, sex: "Male", image_path: "https://dogzone-tcwebsites.netdna-ssl.com/wp-content/uploads/2018/07/pomeranian-price-1.jpg")
+      visit "/pets/#{jasper.id}"
+      click_on "Add to Favorites"
+      visit "/pets/#{jasper.id}"
+      click_on "Delete Pet"
+      visit "/pets"
+        within(".clearfix") do
+          expect(page).to have_content("Favorites: 0")
+        end
+    end
+  end
