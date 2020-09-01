@@ -52,6 +52,9 @@ class PetsController < ApplicationController
 
   def destroy
     Pet.destroy(params[:id])
+      if session[:favorites]
+        session[:favorites].delete(params[:id])
+      end
     redirect_to '/pets'
   end
 
