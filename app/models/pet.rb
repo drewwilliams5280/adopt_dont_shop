@@ -3,4 +3,9 @@ class Pet < ApplicationRecord
   has_many :pet_applications
   has_many :applications, through: :pet_applications
   validates_presence_of :name, :approximate_age, :sex, :image_path
+
+  def adoptable?
+    self.status == "Adoptable"
+  end
+
 end
