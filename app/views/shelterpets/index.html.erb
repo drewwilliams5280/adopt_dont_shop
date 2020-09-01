@@ -24,7 +24,9 @@
     <p>Approximate age: <%= pet.approximate_age%></p>
     <p>Sex: <%= pet.sex%></p>
     <h5><a href="/pets/<%= pet.id %>/edit">Edit</a></h5>
-    <h5><a href="/pets/<%= pet.id %>/delete">Delete</a></h5>
+      <% if pet.adoptable? %>
+        <h5><a href="/pets/<%= pet.id %>/delete">Delete</a></h5>
+      <% end %>
     <br><br>
   </div>
 <% end %>

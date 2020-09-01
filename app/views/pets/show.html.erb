@@ -8,7 +8,9 @@
 <p>Sex: <%= @pet.sex %></p>
 <p>Adoption Status: <%= @pet.status %></p>
 <h5><a href="/pets/<%= @pet.id %>/edit">Update Pet</a></h5>
+<% if @pet.adoptable? %>
 <h5><a href="/pets/<%= @pet.id %>/delete">Delete Pet</a></h5><br>
+<% end %>
 <% if session[:favorites] && session[:favorites].include?(@pet.id.to_s) %>
 <%= link_to 'Remove from Favorites', "/favorites/#{@pet.id}", :method => :delete %>
 <% else %>
