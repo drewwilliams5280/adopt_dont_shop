@@ -36,4 +36,10 @@ class ApplicationsController < ApplicationController
     redirect_to '/pets'
   end
 
+  def unapprove
+    pets = params[:applied_pets][:pets]
+    Pet.where('id IN (?)', pets).update_all(status: "Adoptable")
+    redirect_to "/applications/#{params[:application_id]}"
+  end
+
 end
