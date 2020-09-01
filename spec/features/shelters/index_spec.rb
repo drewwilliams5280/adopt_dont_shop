@@ -90,4 +90,22 @@ RSpec.describe "shelters index page", type: :feature do
      expect(page).to_not have_link("Delete Shelter")
    end
 
+   it "removes delete shelter button when pets are pending adoption" do # User Story 27
+     shelter_1 = Shelter.create( name: "Drew's Rescue",
+                               address: "208 Main St.",
+                               city: "Denver",
+                               state: "CO",
+                               zip: 80222,
+                               )
+      jasper = shelter_1.pets.create!(name: "Jasper", approximate_age: 7, sex: "Male", image_path: "https://dogzone-tcwebsites.netdna-ssl.com/wp-content/uploads/2018/07/pomeranian-price-1.jpg")
+      review = shelter_1.reviews.create!(title: "Terrible Service",
+                                rating: "2",
+                                content: "Manager was very rude and slapped a kitten!",
+                                picture: "https://www.catster.com/wp-content/uploads/2017/12/Sad-young-brown-tabby-kitten.jpg"
+                                )
+      visit "/shelters"
+      click_on "Delete"
+      expect(page).to_not have_content(shelter_1.name)
+    end
+
 end
