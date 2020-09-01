@@ -23,14 +23,27 @@ class SheltersController < ApplicationController
 
   def create
     shelter = Shelter.new({
-      name: params[:shelter][:name],
-      address: params[:shelter][:address],
-      city: params[:shelter][:city],
-      state: params[:shelter][:state],
-      zip: params[:shelter][:zip]
-      })
-      shelter.save
+    name: params[:shelter][:name],
+    address: params[:shelter][:address],
+    city: params[:shelter][:city],
+    state: params[:shelter][:state],
+    zip: params[:shelter][:zip]
+    })
+    if shelter.save
+      flash[:notice] = "Shelter created successfully!"
       redirect_to '/shelters'
+    else
+      @empty_fields = []
+      params[:shelter].each do |key,v|
+        if v == ""
+          @empty_fields << key
+        end
+      end
+      @empty_fields.each do |field|
+        flash[:empty_fields] = "Please fill in the #{field} field."
+      end
+      render :new
+    end
   end
 
   def update
