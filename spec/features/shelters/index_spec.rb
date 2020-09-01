@@ -90,7 +90,7 @@ RSpec.describe "shelters index page", type: :feature do
      expect(page).to_not have_link("Delete Shelter")
    end
 
-   it "removes delete shelter button when pets are pending adoption" do # User Story 27
+   it "removes delete shelter button when pets are pending adoption" do # User Story 27 & US28
      shelter_1 = Shelter.create( name: "Drew's Rescue",
                                address: "208 Main St.",
                                city: "Denver",
