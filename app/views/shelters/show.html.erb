@@ -8,7 +8,9 @@
 <p><%= @shelter.zip %></p>
 <h5><a href="/shelters/<%= @shelter.id %>/pets">View Pets</a></h5>
 <h5><a href="/shelters/<%= @shelter.id %>/edit">Update Shelter</a></h5>
-<h5><a href="/shelters/<%= @shelter.id %>/delete">Delete Shelter</a></h5>
+<% if !@shelter.pets_pending_adoption? %>
+  <h5><a href="/shelters/<%= @shelter.id %>/delete">Delete Shelter</a></h5>
+<% end %>
 </div>
 <center>
 <div style="width:300px;height:600px;line-height:3em;overflow:scroll;padding:5px;background-color:#FCFADD;color:#714D03;border:4px double #DEBB07;">

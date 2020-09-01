@@ -11,4 +11,8 @@ class Shelter < ApplicationRecord
     all.sort_by {|shelter| shelter.name}
   end
 
+  def pets_pending_adoption?
+    self.pets.where.not(status: "Adoptable").count >= 1
+  end
+
 end
