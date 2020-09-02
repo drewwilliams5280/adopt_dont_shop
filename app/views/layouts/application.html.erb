@@ -12,8 +12,10 @@
   <body>
     <header class='clearfix'>
       <div class="left-nav" >
+        <div class="page-links">
         <%= link_to "Pets", controller: "pets" %>
         <%= link_to "Shelters", controller: "shelters" %>
+      </div>
       </div>
       <div class="right-nav" >
         <% if session[:favorites] %>
