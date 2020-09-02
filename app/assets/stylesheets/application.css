@@ -31,6 +31,11 @@
 
  body {
    margin: 0;
+   justify-content: center;
+   background-image: url(https://images.unsplash.com/photo-1516541196182-6bdb0516ed27?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80);
+   background-repeat: repeat-x;
+   background-attachment:fixed;
+   background-position: center;
  }
 
  .column {
@@ -43,6 +48,7 @@
   content: "";
   display: table;
   clear: both;
+  background-color: white;
 }
 
  .content {
