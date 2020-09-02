@@ -81,3 +81,9 @@
   font-size: 1em;
   font-family: serif;
 }
+
+.page-links {
+  color: black;
+  font-weight: bolder;
+
+}
