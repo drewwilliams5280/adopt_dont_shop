@@ -77,6 +77,7 @@ RSpec.describe "pets show page", type: :feature do
                                   state: "CO",
                                   zip: 80222,
                                   )
+                                  
       jasper = shelter_1.pets.create!(name: "Jasper", approximate_age: 7, sex: "Male", image_path: "https://dogzone-tcwebsites.netdna-ssl.com/wp-content/uploads/2018/07/pomeranian-price-1.jpg")
       visit "/pets/#{jasper.id}"
       click_on "Add to Favorites"
@@ -87,4 +88,23 @@ RSpec.describe "pets show page", type: :feature do
           expect(page).to have_content("Favorites: 0")
         end
     end
-  end
+
+    # it "cannot update pet if field is missing" do
+    #
+    #   shelter_1 = Shelter.create( name: "Drew's Rescue",
+    #                               address: "208 Main St.",
+    #                               city: "Denver",
+    #                               state: "CO",
+    #                               zip: 80222,
+    #                               )
+    #   jasper = shelter_1.pets.create!(name: "Jasper", approximate_age: 7, sex: "Male", image_path: "https://dogzone-tcwebsites.netdna-ssl.com/wp-content/uploads/2018/07/pomeranian-price-1.jpg")
+    #   visit "/pets/#{jasper.id}"
+    #   click_on "Update Pet"
+    #   fill_in "pet[name]", with: ""
+    #   fill_in "pet[image_path]", with: "https://cdn3-www.dogtime.com/assets/uploads/gallery/chow-chow-dog-breed-pictures/3-fullbody.jpg"
+    #   fill_in "pet[approximate_age]", with: "12"
+    #   fill_in "pet[description]", with: "Best boy"
+    #   fill_in "pet[sex]", with: "Male"
+    # end
+
+end
