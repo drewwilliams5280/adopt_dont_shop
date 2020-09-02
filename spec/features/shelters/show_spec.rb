@@ -89,7 +89,6 @@ RSpec.describe "shelters show page", type: :feature do
     fill_in :title, with: "Boo"
     fill_in :rating, with: "1"
     fill_in :content, with: "This place sucks!"
-    fill_in :picture, with: "https://lh3.googleusercontent.com/proxy/M0EPbDwsZdDe2dZ4-7Gs9CvpLMgMR65WNr6PIQRBKe4TCdwjLO3Kk1VwHMQnx4CS8ogurhRtTqYOZRoHkNGlO28Iz_hmHgfwcx2LqrTfOidGZ8mMVw"
     click_on "Create Review"
   end
 
@@ -138,8 +137,8 @@ RSpec.describe "shelters show page", type: :feature do
     expect(page).to have_field(:title, with: "#{review_1.title}")
     fill_in :rating, with: "5"
     fill_in :content, with: "This place rocks!"
+    fill_in :picture, with: ""
     fill_in :title, with: "Changed my mind!"
-    # fill_in :picture, with: "https://lh3.googleusercontent.com/proxy/M0EPbDwsZdDe2dZ4-7Gs9CvpLMgMR65WNr6PIQRBKe4TCdwjLO3Kk1VwHMQnx4CS8ogurhRtTqYOZRoHkNGlO28Iz_hmHgfwcx2LqrTfOidGZ8mMVw"
     expect(page).to have_button("Submit")
     click_on "Submit"
     expect(current_path).to eq("/shelters/#{shelter_1.id}")
@@ -166,7 +165,6 @@ RSpec.describe "shelters show page", type: :feature do
     expect(current_path).to eq("/shelters/#{shelter_1.id}/#{review_1.id}/edit")
     fill_in :rating, with: ""
     fill_in :content, with: "This place sucks!"
-    fill_in :picture, with: "https://lh3.googleusercontent.com/proxy/M0EPbDwsZdDe2dZ4-7Gs9CvpLMgMR65WNr6PIQRBKe4TCdwjLO3Kk1VwHMQnx4CS8ogurhRtTqYOZRoHkNGlO28Iz_hmHgfwcx2LqrTfOidGZ8mMVw"
     click_on "Submit"
 
     expect(current_path).to eq("/shelters/#{shelter_1.id}/#{review_1.id}/edit")

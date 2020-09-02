@@ -4,7 +4,7 @@ class PetsController < ApplicationController
     if params[:adoptable] == "true"
       @pets = Pet.all.find_all {|pet| pet.status == "Adoptable"}
     elsif params[:adoptable] == "false"
-      @pets = Pet.all.find_all {|pet| pet.status == "Pending Adoption"}
+      @pets = Pet.all.find_all {|pet| pet.status.include?("Pending")}
     else
       @pets = Pet.all
     end
