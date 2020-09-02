@@ -3,8 +3,8 @@
   <h3>Your place to find love</h3>
 </div>
 <div class="right-nav", id = "favorites_right_nav">
+  <section style="padding:20px;text-align:center;">
   <%= link_to 'Remove All Favorites', "/favorites", :method => :delete %>
-  <section>
       <h3> Pending Applications </h3>
       <% @applications.each do |application| %>
       <p><%= link_to Pet.find(application.pet_id).name, "pets/#{application.pet_id}"%></p>
