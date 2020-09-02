@@ -66,11 +66,6 @@ class SheltersController < ApplicationController
     redirect_to '/shelters'
   end
 
-  def sort
-    @shelters = Shelter.all.sort_by {|shelter| shelter.pets.count}
-    redirect_to '/shelters'
-  end
-
   def review
     @shelter = Shelter.find(params[:id])
   end

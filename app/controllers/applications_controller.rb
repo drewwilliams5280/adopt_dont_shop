@@ -1,7 +1,6 @@
 class ApplicationsController < ApplicationController
 
   def index
-    @application = Application.all
   end
 
   def show

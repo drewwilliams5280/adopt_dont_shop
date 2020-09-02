@@ -35,24 +35,25 @@ RSpec.describe "shelter_pets index page", type: :feature do
     expect(page).to have_content("Number of pets: #{shelter_1.pets.count}")
   end
 
-  # it "can" do
-  #   shelter_1 = Shelter.create( name: "Drew's Rescue",
-  #                               address: "208 Main St.",
-  #                               city: "Denver",
-  #                               state: "CO",
-  #                               zip: 80222,
-  #                               )
-  #   jasper = shelter_1.pets.create!(name: "Jasper", approximate_age: 7, sex: "Male", image_path: "https://dogzone-tcwebsites.netdna-ssl.com/wp-content/uploads/2018/07/pomeranian-price-1.jpg")
-  #   tasha = shelter_1.pets.create!(name: "Tasha", approximate_age: 4, sex: "Female", image_path: "https://www.thesprucepets.com/thmb/ma-SKxXBI5uvv_H0McPOhfCZajU=/1415x1415/smart/filters:no_upscale()/DobermanPinscher-GettyImages-947977330-4309781e940842368e71ef744caa4f9c.jpg")
-  #   moose = shelter_1.pets.create!(status: "Pending Adoption", name: "Moose", approximate_age: 7, sex: "Male", image_path: "https://dogzone-tcwebsites.netdna-ssl.com/wp-content/uploads/2018/07/pomeranian-price-1.jpg")
-  #   goose = shelter_1.pets.create!(name: "Goose", approximate_age: 7, sex: "Male", image_path: "https://dogzone-tcwebsites.netdna-ssl.com/wp-content/uploads/2018/07/pomeranian-price-1.jpg")
-  #   visit "/pets"
-  #   click_on "Pending Adoption"
-  #   expect(current_path).to eq("/pets?adoptable=false")
-  #   expect(page).to have_content("Moose")
-  #   expect(page).to_not have_content("Goose")
-  #   expect(page).to_not have_content("Jasper")
-  #   expect(page).to_not have_content("Tasha")
-  #
-  # end
+  it "can see only adoptable or pending pets" do
+
+    shelter_1 = Shelter.create( name: "Drew's Rescue",
+                                address: "208 Main St.",
+                                city: "Denver",
+                                state: "CO",
+                                zip: 80222,
+                                )
+    jasper = shelter_1.pets.create!(status: "Pending", name: "Jasper", approximate_age: 7, sex: "Male", image_path: "https://dogzone-tcwebsites.netdna-ssl.com/wp-content/uploads/2018/07/pomeranian-price-1.jpg")
+    tasha = shelter_1.pets.create!(name: "Tasha", approximate_age: 4, sex: "Female", image_path: "https://www.thesprucepets.com/thmb/ma-SKxXBI5uvv_H0McPOhfCZajU=/1415x1415/smart/filters:no_upscale()/DobermanPinscher-GettyImages-947977330-4309781e940842368e71ef744caa4f9c.jpg")
+    visit "/shelters/#{shelter_1.id}/pets"
+    expect(page).to have_content("Jasper")
+    expect(page).to have_content("Tasha")
+    click_on "See only adoptable pets"
+    expect(page).to have_content("Tasha")
+    expect(page).to_not have_content("Jasper")
+    click_on "See only pets pending adoption"
+    expect(page).to have_content("Jasper")
+    expect(page).to_not have_content("Tasha")
+
+  end
 end

@@ -108,4 +108,46 @@ RSpec.describe "shelters index page", type: :feature do
       expect(page).to_not have_content(shelter_1.name)
     end
 
+    it "can sort shelters alpabetically" do
+      shelter_1 = Shelter.create( name: "Drew's Rescue",
+                                  address: "208 Main St.",
+                                  city: "Denver",
+                                  state: "CO",
+                                  zip: 80222,
+                                  )
+      shelter_2 = Shelter.create( name: "Happy Paws",
+                                 address: "222 22nd Ave.",
+                                 city: "Denver",
+                                 state: "CO",
+                                 zip: 82222,
+                                 )
+      jasper = shelter_1.pets.create!(name: "Jasper", approximate_age: 7, sex: "Male", image_path: "https://dogzone-tcwebsites.netdna-ssl.com/wp-content/uploads/2018/07/pomeranian-price-1.jpg")
+      tasha = shelter_1.pets.create!(name: "Tasha", approximate_age: 4, sex: "Female", image_path: "https://www.thesprucepets.com/thmb/ma-SKxXBI5uvv_H0McPOhfCZajU=/1415x1415/smart/filters:no_upscale()/DobermanPinscher-GettyImages-947977330-4309781e940842368e71ef744caa4f9c.jpg")
+      prince = shelter_2.pets.create!(name: "Prince", approximate_age: 7, sex: "Male", image_path: "https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/dog_cool_summer_slideshow/1800x1200_dog_cool_summer_other.jpg")
+      visit "/shelters"
+      click_on "Sort alphabetically"
+      expect("Drew's Rescue").to appear_before("Happy Paws")
+     end
+
+     it "can sort shelters by pet count" do
+       shelter_1 = Shelter.create( name: "Drew's Rescue",
+                                   address: "208 Main St.",
+                                   city: "Denver",
+                                   state: "CO",
+                                   zip: 80222,
+                                   )
+       shelter_2 = Shelter.create( name: "Happy Paws",
+                                  address: "222 22nd Ave.",
+                                  city: "Denver",
+                                  state: "CO",
+                                  zip: 82222,
+                                  )
+       jasper = shelter_1.pets.create!(name: "Jasper", approximate_age: 7, sex: "Male", image_path: "https://dogzone-tcwebsites.netdna-ssl.com/wp-content/uploads/2018/07/pomeranian-price-1.jpg")
+       tasha = shelter_1.pets.create!(name: "Tasha", approximate_age: 4, sex: "Female", image_path: "https://www.thesprucepets.com/thmb/ma-SKxXBI5uvv_H0McPOhfCZajU=/1415x1415/smart/filters:no_upscale()/DobermanPinscher-GettyImages-947977330-4309781e940842368e71ef744caa4f9c.jpg")
+       prince = shelter_2.pets.create!(name: "Prince", approximate_age: 7, sex: "Male", image_path: "https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/dog_cool_summer_slideshow/1800x1200_dog_cool_summer_other.jpg")
+       visit "/shelters"
+       click_on "Sort by number of pets"
+       expect("Drew's Rescue").to appear_before("Happy Paws")
+      end
+
 end
