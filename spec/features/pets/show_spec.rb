@@ -77,6 +77,7 @@ RSpec.describe "pets show page", type: :feature do
                                   state: "CO",
                                   zip: 80222,
                                   )
+                                  
       jasper = shelter_1.pets.create!(name: "Jasper", approximate_age: 7, sex: "Male", image_path: "https://dogzone-tcwebsites.netdna-ssl.com/wp-content/uploads/2018/07/pomeranian-price-1.jpg")
       visit "/pets/#{jasper.id}"
       click_on "Add to Favorites"
