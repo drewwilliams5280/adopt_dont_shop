@@ -1,6 +1,7 @@
 class Shelter < ApplicationRecord
   has_many :pets
   has_many :reviews
+  has_many :applications, through: :pets
   validates_presence_of :name, :address, :city, :state, :zip
 
   def self.sort_by_pet_count
@@ -8,7 +9,8 @@ class Shelter < ApplicationRecord
   end
 
   def self.sort_by_name
-    all.sort_by {|shelter| shelter.name}
+    order(:name)
+    # all.sort_by {|shelter| shelter.name}
   end
 
   def pets_pending_adoption?
@@ -24,8 +26,9 @@ class Shelter < ApplicationRecord
   end
 
   def application_count
-    pet_ids = self.pets.ids
-    PetApplication.where('pet_id IN (?)', pet_ids).count
+    applications.count
+    # pet_ids = self.pets.ids
+    # PetApplication.where('pet_id IN (?)', pet_ids).count
   end
 
 end
